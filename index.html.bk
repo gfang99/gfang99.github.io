@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/">
+
+<link rel="stylesheet" href="./jemdoc.css" type="text/css">
+
+<title>Gan Fang</title>
+</head>
+
+<body>
+<div id="layout-content">
+<div id="toptitle">
+<h1>Gan Fang @ Purdue CS</h1>
+</div>
+
+<table class="imgtable" style="width: 100%; border-collapse: collapse;">
+<tbody>
+    <tr>
+    <td style="width: 160px; vertical-align: top; text-align: center;">
+        <img src="profile.jpg" alt="profile" style="width: auto; height: 200px;">
+    </td>
+    <td style="vertical-align: top; padding-left: 20px; line-height: 1.3;">
+        <font size="+2"><b>Gan Fang</b></font><br><br>
+        Ph.D. Student<br>
+        Department of Computer Science<br>
+        Purdue University<br>
+        305 N University St, West Lafayette, IN 47907<br>
+        Office: LWSN 3151-7<br>
+        Email: fang301@purdue.edu<br>
+        <a href="https://scholar.google.com/citations?user=TzYapqAAAAAJ&hl=en" target="_blank">Google Scholar</a><br>
+        <!-- <a href="https://dblp.org/">DBLP</a><br> -->
+    </td>
+    </tr>
+</tbody>
+</table>
+
+  
+<!-- <br/>
+<section>
+    [ <a href="#Biography">Biography</a> |
+	<a href="#Publication">Publications</a> |
+    <a href="#Experience">Experience</a> |
+    <a href="#Cat">Meow</a> ]
+</section>
+<br/> -->
+
+<section id="Biography">
+<h2>Biography</h2>
+<p>I am a Ph.D. student of Computer Science at Purdue University, advised by Dr. Changhee Jung. 
+    My research focuses on computer architecture, with an emphasis on low-power design 
+    for intermittent processors. My current work aims to improve the overall energy efficiency 
+    of CPU microarchitecture by reducing the unnecessary energy waste in cache and memory. 
+    Additionally, I am also working on designing reliable and lightweight processors to 
+    address crash consistency issues arising from power interruptions. 
+    </p>
+    
+
+<section id="Publication">
+	<h2>Publications</h2>
+	<ul>
+
+        <p>
+            <li>
+                <b style="color: blue;">[ISCA'25]</b> Rethinking Prefetching for Intermittent Computing <a href="papers/IPEX_ISCA25_taps.pdf">[PDF]</a><br>
+                <I><b>Gan Fang</b>, Jianping Zeng, Aditya Gupta, and Changhee Jung</I><br>
+                <I>ACM/IEEE International Symposium on Computer Architecture, June 2025.</I><br>
+                <b style="color: blue;"><I><a href="https://www.iscaconf.org/isca2025/#:~:text=%22Rethinking%20Prefetching%20for%20Intermittent%20Computing%22%20by%20Gan%20Fang%2C%20Jianping%20Zeng%2C%20Aditya%20Gupta%2C%20Changhee%20Jung" target="_blank">Best Paper Honorable Mention</a></I></b>
+                
+            </li>
+		</p>
+
+		<p>
+            <li>
+                <b style="color: blue;">[HPCA'25]</b> Rethinking Dead Block Prediction for Intermittent Computing <a href="papers/EDBP_HPCA25.pdf">[PDF]</a><br>
+                <I><b>Gan Fang</b> and Changhee Jung</I><br>
+                <I>IEEE International Symposium on High-Performance Computer Architecture, March 2025.</I>
+            </li>
+		</p>
+
+		<p>
+            <li>
+                <b style="color: blue;">[ICCAD'24]</b> Hybrid Power Failure Recovery for Intermittent Computing <a href="papers/RollSwitch_ICCAD24.pdf">[PDF]</a><br>
+                <I><b>Gan Fang</b>, Jongouk Choi, and Changhee Jung</I><br>
+                <I>ACM/IEEE International Conference on Computer-Aided Design, October 2024.</I>
+            </li>
+        </p>
+
+	</ul>
+</section>
+
+<section id="Experience">
+	<h2>Experience</h2>
+	<ul>
+        <p>
+            <li>
+                SoC Modeling Intern @ Samsung Research America (05/2025 ~ 8/2025)<br>
+                <!-- <I>Combine non-critical CPU tasks into larger ones to reduce scheduling overhead and maximize cacheline reuse. </I> -->
+                    <!-- Specifically, group tasks that access overlapping data sets so that once a cache line is loaded, it services multiple operations in succession. 
+                    This consolidation minimizes redundant memory fetches, improves temporal locality, and reduces task‐switch penalties, ultimately boosting throughput and energy efficiency. -->
+
+            </li>
+        </p>
+
+        <p>
+            <li>
+                HPC Library Engineer Intern @ Cambricon Technology (3/2021 ~ 6/2021)<br>
+                <!-- <I>Generate test caches for machine learning inference engine to ensure its correctness across various scenarios.</I> -->
+            </li>
+        </p>
+
+        <p>
+            <li>
+                Computer Architecture Intern @ Biren Technology (07/2020 ~ 12/2020)<br>
+                <!-- <I>Assist in developing a command generator to produce machine instructions for different operators.</I> -->
+            </li>
+        </p>
+	</ul>
+</section>
+
+
+<section id="Mentees">
+	<h2>Mentees</h2>
+	<ul> 
+        <li>Sikang Sun, Undergraduate @ Purdue University --> Now PhD @ Purdue University</li>
+        <li>Aditya Gupta, Undergraduate @ Purdue University --> Now SDE @theom</li>
+        <li>Dongho Choi, Undergraduate @ Seoul National University</li>
+        <li>Khanh Nguyen, Undergraduate @ Purdue University</li>
+        <li>Zhanyue Zhang, Graduate @ The University of Texas at Austin</li>
+        <li>Chewon Yu Park, Undergraduate @ Purdue University</li>
+        <li>Sotirios Kougiouris, Graduate @ Purdue University</li>
+	</ul>
+</section>
+
+
+<section id="Cat">
+    <h2>Meow</h2>
+    <table class="imgtable" style="width: 100%; border-collapse: collapse; margin-bottom: 1em;">
+      <tbody>
+        <tr>
+          <td style="width: 160px; vertical-align: top; text-align: center;">
+            <img src="dax.jpg" alt="Dax" style="width: auto; height: 200px; border-radius: 8px;">
+          </td>
+
+          <td style="width: 160px; vertical-align: top; text-align: center;">
+            <img src="dax1.jpg" alt="Dax" style="width: auto; height: 200px; border-radius: 8px;">
+          </td>
+          <td style="vertical-align: top; padding-left: 20px; line-height: 1.4;">
+            <p>
+                Dax is originally from Kansas and became part of our family in the fall of 2023.
+                He diligently helps me debug and polish papers at night!
+            </p>
+          </td>
+
+
+        </tr>
+      </tbody>
+    </table>
+
+  </section>
+
+
+</body></html>
