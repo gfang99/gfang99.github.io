@@ -4,162 +4,490 @@
   <meta charset="UTF-8" />
   <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gan Fang is a Ph.D. candidate in Computer Science at Purdue University working on energy-efficient computer architecture and cache optimization." />
   <title>Gan Fang | Purdue CS</title>
   <link rel="stylesheet" href="./jemdoc.css" type="text/css" />
   <style>
+    :root {
+      --bg: #f7f7f4;
+      --surface: #ffffff;
+      --text: #202226;
+      --muted: #59606a;
+      --line: #d9ded8;
+      --accent: #1d5f68;
+      --accent-strong: #13454c;
+      --accent-soft: #e8f2f1;
+      --gold: #9a6a1d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      background:
+        linear-gradient(180deg, #eef4f1 0, rgba(238, 244, 241, 0) 260px),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      font-size: 16px;
       line-height: 1.6;
-      color: #333;
+      text-align: left;
     }
+
     #layout-content {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+      width: min(100%, 980px);
+      margin: 0 auto;
+      padding: 36px 24px 48px;
+      background: transparent;
+      border: 0;
+      text-align: left;
     }
-    #toptitle h1 {
-      margin-bottom: 0.5em;
-    }
-    .imgtable {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .imgtable img {
-      max-width: 150px;
-      border-radius: 6px;
-    }
-    .profile-info {
-      padding-left: 20px;
-    }
-    section h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.3em;
-      margin-top: 1em;
-      margin-bottom: 0.3em;  /* add this if not present */
-    }
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
-    }
-    li {
-      margin-bottom: 0.1em;
-    }
-    p {
-      margin-top: 0.3em;
-      margin-bottom: 0.3em;
-    }
+
     a {
-      color: #0056b3;
+      color: var(--accent);
+      font-weight: 600;
       text-decoration: none;
+      text-underline-offset: 3px;
     }
-    a:hover {
+
+    a:hover,
+    a:focus {
+      color: var(--accent-strong);
       text-decoration: underline;
     }
-    .highlight {
-      color: #0056b3;
-      font-weight: bold;
+
+    .profile {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 16px 40px rgba(41, 51, 45, 0.08);
     }
-    .cat-section img {
-      height: 200px;
-      margin-right: 10px;
+
+    .profile-photo {
+      width: 180px;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+    }
+
+    .profile h1 {
+      margin: 0 0 8px;
+      padding: 0;
+      border: 0;
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.75rem, 4.2vw, 2.55rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .chinese-name {
+      color: var(--muted);
+      font-family: "STXingkai", "Xingkai SC", "HanziPen SC", "KaiTi", "Kaiti SC", cursive;
+      font-size: 0.7em;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .profile-title {
+      margin: 0 0 14px;
+      color: var(--accent-strong);
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .profile-meta {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .profile-links a,
+    .nav a,
+    .paper-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fbfcfb;
+      color: var(--accent-strong);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .profile-links a:hover,
+    .nav a:hover,
+    .paper-link:hover {
+      background: var(--accent-soft);
+      text-decoration: none;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 30px;
+    }
+
+    section {
+      margin-top: 30px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      padding: 0 0 8px;
+      border-bottom: 1px solid var(--line);
+      color: var(--accent-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 14px;
+      line-height: 1.65;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.15rem;
+      list-style-type: square;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .paper-list {
+      display: grid;
+      gap: 14px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .paper-list li {
+      margin: 0;
+      padding: 16px 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
       border-radius: 8px;
     }
+
+    .venue {
+      display: inline-block;
+      margin-right: 6px;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .paper-title {
+      font-weight: 800;
+    }
+
+    .paper-meta {
+      margin-top: 6px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .award {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .compact-list li {
+      margin-bottom: 7px;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .experience-list li {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: center;
+      margin: 0;
+      padding: 12px 14px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .experience-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+    }
+
+    .experience-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .experience-role {
+      display: block;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .experience-meta {
+      display: block;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+
+    .cat-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .cat-grid img {
+      width: auto;
+      height: 180px;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #eef0ed;
+    }
+
+    footer {
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 720px) {
+      #layout-content {
+        padding: 22px 16px 36px;
+      }
+
+      .profile {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+
+      .profile-photo {
+        width: 150px;
+      }
+
+      .cat-grid img {
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .profile-links a,
+      .nav a,
+      .paper-link {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .cat-grid img {
+        height: auto;
+        width: 100%;
+      }
+    }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-267KEYRVY0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-267KEYRVY0');
+  </script>
 </head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-267KEYRVY0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-267KEYRVY0');
-</script>
-
 
 <body>
   <div id="layout-content">
-    <!-- <header id="toptitle">
-      <h1>Gan Fang @ Purdue CS</h1>
-    </header> -->
+    <header class="profile">
+      <img class="profile-photo" src="profile.jpg" alt="Profile photo of Gan Fang" />
+      <div>
+        <h1>Gan Fang <span class="chinese-name">方淦</span></h1>
+        <p class="profile-title">Ph.D. Candidate, Department of Computer Science, Purdue University</p>
+        <p class="profile-meta">
+          fang301@purdue.edu
+        </p>
+        <div class="profile-links" aria-label="Profile links">
+          <a href="https://scholar.google.com/citations?user=TzYapqAAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <a href="https://dblp.org/pid/162/5530.html" target="_blank" rel="noopener noreferrer">DBLP</a>
+        </div>
+      </div>
+    </header>
 
-    <table class="imgtable">
-      <tbody>
-        <tr>
-        <td style="width: 160px; text-align: center;"> <img src="profile.jpg" alt="Profile photo of Gan Fang" /> </td>
-          <td class="profile-info" style="vertical-align: top;">
-            <h2 style="margin-top: 0;">Gan Fang</h2>
-            <p>
-              Ph.D. Candidate<br />
-              Department of Computer Science<br />
-              Purdue University<br />
-              Email: fang301@purdue.edu<br />
-              <a href="https://scholar.google.com/citations?user=TzYapqAAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
+    <nav class="nav" aria-label="Page sections">
+      <a href="#Biography">About</a>
+      <a href="#Publication">Publications</a>
+      <a href="#Experience">Experience</a>
+      <a href="#Recognitions">Recognitions</a>
+      <a href="#Mentees">Mentees</a>
+      <a href="#Cat">Meow</a>
+    </nav>
 
     <main>
       <section id="Biography">
         <h2>About Me</h2>
         <p>
-          I am a computer architect who designs hardware mechanisms to address energy and performance bottlenecks in real-world workloads. 
-          My research focuses on energy-efficient microarchitecture and cache optimization. 
-          I am currently a Ph.D. candidate in Computer Science at Purdue University, advised by Dr. Changhee Jung.
+          I am a Ph.D. candidate in Computer Science at Purdue University, advised by <a href="https://www.cs.purdue.edu/homes/chjung/" target="_blank" rel="noopener noreferrer">Dr. Changhee Jung</a>.
+          I design hardware mechanisms that address energy and performance bottlenecks in real-world workloads, with a focus on energy-efficient microarchitecture, cache optimization, and intermittent computing.
         </p>
       </section>
 
       <section id="Publication">
         <h2>Publications</h2>
-        <ul>
+        <ul class="paper-list">
           <li>
-            <span class="highlight">[HPCA'26]</span> Intermittence-Aware Cache Compression
-            <a href="papers/Kagura_HPCA26.pdf">[PDF]</a><br />
-            <i><b>Gan Fang</b>, Jianping Zeng, Yuchen Zhou, and Changhee Jung</i><br />
-            <i>IEEE International High-Performance Computer Architecture, January 2026.</i>
+            <span class="venue">[HPCA'26]</span>
+            <span class="paper-title">Intermittence-Aware Cache Compression</span>
+            <a class="paper-link" href="papers/Kagura_HPCA26.pdf">PDF</a>
+            <div class="paper-meta">
+              <strong>Gan Fang</strong>, Jianping Zeng, Yuchen Zhou, and Changhee Jung<br />
+              IEEE International Symposium on High-Performance Computer Architecture, January 2026.
+            </div>
           </li>
 
           <li>
-            <span class="highlight">[ISCA'25]</span> Rethinking Prefetching for Intermittent Computing
-            <a href="papers/IPEX_ISCA25_taps.pdf">[PDF]</a><br />
-            <i><b>Gan Fang</b>, Jianping Zeng, Aditya Gupta, and Changhee Jung</i><br />
-            <i>ACM/IEEE International Symposium on Computer Architecture, June 2025.</i><br />
-            <b><i><a href="https://www.iscaconf.org/isca2025/#:~:text=%22Rethinking%20Prefetching%20for%20Intermittent%20Computing%22%20by%20Gan%20Fang%2C%20Jianping%20Zeng%2C%20Aditya%20Gupta%2C%20Changhee%20Jung" target="_blank" rel="noopener noreferrer">Best Paper Honorable Mention</a></i></b>
+            <span class="venue">[ISCA'25]</span>
+            <span class="paper-title">Rethinking Prefetching for Intermittent Computing</span>
+            <a class="paper-link" href="papers/IPEX_ISCA25_taps.pdf">PDF</a>
+            <div class="paper-meta">
+              <strong>Gan Fang</strong>, Jianping Zeng, Aditya Gupta, and Changhee Jung<br />
+              ACM/IEEE International Symposium on Computer Architecture, June 2025.<br />
+              <a class="award" href="https://www.iscaconf.org/isca2025/#:~:text=%22Rethinking%20Prefetching%20for%20Intermittent%20Computing%22%20by%20Gan%20Fang%2C%20Jianping%20Zeng%2C%20Aditya%20Gupta%2C%20Changhee%20Jung" target="_blank" rel="noopener noreferrer">Best Paper Honorable Mention</a>
+            </div>
           </li>
 
           <li>
-            <span class="highlight">[HPCA'25]</span> Rethinking Dead Block Prediction for Intermittent Computing
-            <a href="papers/EDBP_HPCA25.pdf">[PDF]</a><br />
-            <i><b>Gan Fang</b> and Changhee Jung</i><br />
-            <i>IEEE International Symposium on High-Performance Computer Architecture, March 2025.</i>
+            <span class="venue">[HPCA'25]</span>
+            <span class="paper-title">Rethinking Dead Block Prediction for Intermittent Computing</span>
+            <a class="paper-link" href="papers/EDBP_HPCA25.pdf">PDF</a>
+            <div class="paper-meta">
+              <strong>Gan Fang</strong> and Changhee Jung<br />
+              IEEE International Symposium on High-Performance Computer Architecture, March 2025.
+            </div>
           </li>
 
           <li>
-            <span class="highlight">[ICCAD'24]</span> Hybrid Power Failure Recovery for Intermittent Computing
-            <a href="papers/RollSwitch_ICCAD24.pdf">[PDF]</a><br />
-            <i><b>Gan Fang</b>, Jongouk Choi, and Changhee Jung</i><br />
-            <i>ACM/IEEE International Conference on Computer-Aided Design, October 2024.</i>
+            <span class="venue">[ICCAD'24]</span>
+            <span class="paper-title">Hybrid Power Failure Recovery for Intermittent Computing</span>
+            <a class="paper-link" href="papers/RollSwitch_ICCAD24.pdf">PDF</a>
+            <div class="paper-meta">
+              <strong>Gan Fang</strong>, Jongouk Choi, and Changhee Jung<br />
+              ACM/IEEE International Conference on Computer-Aided Design, October 2024.
+            </div>
           </li>
         </ul>
       </section>
 
       <section id="Experience">
         <h2>Experience</h2>
-        <ul>
-          <li>Computer Architecture Research Intern @ Futurewei Technology (May 2026 – Aug 2026)</li>
-          <li>SoC Modeling Intern @ Samsung Research America (May 2025 – Aug 2025)</li>
-          <li>HPC Library Engineer Intern @ Cambricon Technology (Mar 2021 – Jun 2021)</li>
-          <li>Computer Architecture Intern @ Biren Technology (Jul 2020 – Dec 2020)</li>
+        <ul class="experience-list">
+          <li>
+            <span class="experience-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="6" y="6" width="12" height="12" rx="2"></rect>
+                <path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"></path>
+                <path d="M10 10h4v4h-4z"></path>
+              </svg>
+            </span>
+            <span>
+              <span class="experience-role">Computer Architecture Research Intern</span>
+              <span class="experience-meta">Futurewei Technology, May 2026 - Aug 2026</span>
+            </span>
+          </li>
+          <li>
+            <span class="experience-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 5h16v11H4z"></path>
+                <path d="M8 20h8M10 16v4M14 16v4"></path>
+                <path d="M8 9h3v3H8zM14 9h2M14 12h2"></path>
+              </svg>
+            </span>
+            <span>
+              <span class="experience-role">SoC Modeling Intern</span>
+              <span class="experience-meta">Samsung Research America, May 2025 - Aug 2025</span>
+            </span>
+          </li>
+          <li>
+            <span class="experience-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 7h16M4 12h16M4 17h16"></path>
+                <path d="M7 4v16M12 4v16M17 4v16"></path>
+                <path d="M5 5h14v14H5z"></path>
+              </svg>
+            </span>
+            <span>
+              <span class="experience-role">HPC Library Engineer Intern</span>
+              <span class="experience-meta">Cambricon Technology, Mar 2021 - Jun 2021</span>
+            </span>
+          </li>
+          <li>
+            <span class="experience-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7 7h10v10H7z"></path>
+                <path d="M4 10h3M4 14h3M17 10h3M17 14h3M10 4v3M14 4v3M10 17v3M14 17v3"></path>
+                <path d="M10 12h4"></path>
+              </svg>
+            </span>
+            <span>
+              <span class="experience-role">Computer Architecture Intern</span>
+              <span class="experience-meta">Biren Technology, Jul 2020 - Dec 2020</span>
+            </span>
+          </li>
         </ul>
       </section>
 
       <section id="Recognitions">
         <h2>Recognitions</h2>
-        <ul>
+        <ul class="compact-list">
           <li>2026-2027 Bilsland Dissertation Fellowship</li>
           <li>ISCA 2025 Best Paper Honorable Mention</li>
         </ul>
@@ -167,32 +495,36 @@
 
       <section id="Mentees">
         <h2>Mentees</h2>
-        <ul>
-          <li>Sam Xu — MS @ Georgia Tech → AI Hardware Engineer @ Tesla </li>
-          <li>Sotirios Kougiouris — MS @ Purdue</li>
-          <li>Chewon Yu Park — BS @ Purdue → MS @ Georgia Tech </li>
-          <li>Zhanyue Zhang — MS @ UT Austin</li>
-          <li>Khanh Nguyen — BS @ Purdue</li>
-          <li>Dongho Choi — BS @ Seoul National University → PhD @ Seoul National University</li>
-          <li>Aditya Gupta — BS @ Purdue → SDE @ Theom</li>
-          <li>Sikang Sun — BS @ Purdue → PhD @ Purdue</li>
+        <ul class="compact-list">
+          <li>Sam Xu, MS @ Georgia Tech to AI Hardware Engineer @ Tesla</li>
+          <li>Sotirios Kougiouris, MS @ Purdue</li>
+          <li>Chewon Yu Park, BS @ Purdue to MS @ Georgia Tech</li>
+          <li>Zhanyue Zhang, MS @ UT Austin</li>
+          <li>Khanh Nguyen, BS @ Purdue</li>
+          <li>Dongho Choi, BS @ Seoul National University to Ph.D. @ Seoul National University</li>
+          <li>Aditya Gupta, BS @ Purdue to SDE @ Theom</li>
+          <li>Sikang Sun, BS @ Purdue to Ph.D. @ Purdue</li>
         </ul>
       </section>
 
-      <section id="Cat" class="cat-section">
+      <section id="Cat">
         <h2>Meow</h2>
-        <div style="display: flex; align-items: flex-start; flex-wrap: wrap;">
-          <img src="dax.jpg" alt="Dax the cat" />
-          <img src="dax1.jpg" alt="Dax the cat lying down" />
-          <img src="dax2.jpg" alt="Dax the cat watching you" />
-          <img src="dax3.jpg" alt="Dax the cat watching you" />
-          <p style="max-width: 800px; margin-top: 0;">
-            Dax is a three-year-old British Shorthair who joined our family in the fall of 2023. 
-            He's also my dedicated late-night companion, faithfully helping me debug ideas and polish papers along the way.
-          </p>
+        <div class="cat-grid" aria-label="Photos of Dax">
+          <img src="cats/dax.jpg" alt="Dax the cat" loading="lazy" />
+          <img src="cats/dax1.jpg" alt="Dax the cat lying down" loading="lazy" />
+          <img src="cats/dax2.jpg" alt="Dax the cat watching you" loading="lazy" />
+          <img src="cats/dax3.jpg" alt="Dax the cat relaxing" loading="lazy" />
         </div>
+        <p>
+          Dax is a three-year-old British Shorthair who joined our family in the fall of 2023.
+          He's also my dedicated late-night companion, faithfully helping me debug ideas and polish papers along the way.
+        </p>
       </section>
     </main>
+
+    <!-- <footer>
+      Last updated April 2026.
+    </footer> -->
   </div>
 </body>
 </html>
