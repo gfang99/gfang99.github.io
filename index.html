@@ -278,13 +278,16 @@
 
     .cat-grid {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       align-items: flex-start;
       gap: 10px;
       margin-bottom: 16px;
+      overflow-x: auto;
+      padding-bottom: 4px;
     }
 
     .cat-grid img {
+      flex: 0 0 auto;
       width: auto;
       height: 180px;
       max-width: 100%;
@@ -331,7 +334,7 @@
 
       .cat-grid img {
         height: auto;
-        width: 100%;
+        width: min(100%, 280px);
       }
     }
   </style>
@@ -542,6 +545,7 @@
           <img src="cats/dax1.jpg" alt="Dax the cat lying down" loading="lazy" />
           <img src="cats/dax2.jpg" alt="Dax the cat watching you" loading="lazy" />
           <img src="cats/dax3.jpg" alt="Dax the cat relaxing" loading="lazy" />
+          <img src="cats/dax4.jpg" alt="Dax the cat rolling on the carpet" loading="lazy" />
         </div>
         <p>
           Dax is a three-year-old British Shorthair who joined our family in the fall of 2023.
