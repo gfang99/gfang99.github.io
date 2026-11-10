@@ -2,21 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Gan Fang is a Ph.D. candidate in Computer Science at Purdue University working on energy-efficient computer architecture and cache optimization." />
   <title>Gan Fang | Purdue CS</title>
-  <link rel="stylesheet" href="./jemdoc.css" type="text/css" />
   <style>
     :root {
       --bg: #f7f7f4;
       --surface: #ffffff;
       --text: #202226;
       --muted: #59606a;
-      --line: #d9ded8;
-      --accent: #1d5f68;
-      --accent-strong: #13454c;
-      --accent-soft: #e8f2f1;
+      --line: #d8dde6;
+      --accent: #0543ad;
+      --accent-strong: #043385; /* cvblue: RGB(4, 51, 133) */
+      --accent-soft: #e8eef8;
       --gold: #9a6a1d;
     }
 
@@ -31,7 +29,7 @@
     body {
       margin: 0;
       background:
-        linear-gradient(180deg, #eef4f1 0, rgba(238, 244, 241, 0) 260px),
+        linear-gradient(180deg, #eef2f9 0, rgba(238, 242, 249, 0) 260px) no-repeat,
         var(--bg);
       color: var(--text);
       font-family: Inter, "Segoe UI", Arial, sans-serif;
@@ -71,7 +69,7 @@
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: 8px;
-      box-shadow: 0 16px 40px rgba(41, 51, 45, 0.08);
+      box-shadow: 0 16px 40px rgba(16, 32, 72, 0.08);
     }
 
     .profile-photo {
@@ -96,7 +94,7 @@
     .chinese-name {
       color: var(--muted);
       font-family: "STXingkai", "Xingkai SC", "HanziPen SC", "KaiTi", "Kaiti SC", cursive;
-      font-size: 0.7em;
+      font-size: 0.9em;
       font-weight: 500;
       white-space: nowrap;
     }
@@ -180,129 +178,161 @@
       margin-bottom: 10px;
     }
 
-    .paper-list {
+    /* Publications and Experience share one layout:
+       a narrow label column (venue / dates) and the entry text beside it. */
+    .paper-list,
+    .experience-list {
       display: grid;
-      gap: 8px;
+      row-gap: 16px;
       padding: 0;
       list-style: none;
     }
 
-    .paper-list li {
+    .paper-list li,
+    .experience-list li {
+      display: grid;
+      grid-template-columns: minmax(max-content, 7.5rem) minmax(0, 1fr);
+      column-gap: 16px;
+      align-items: baseline;
       margin: 0;
-      padding: 10px 14px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 8px;
       line-height: 1.45;
     }
 
-    .paper-list .paper-link {
-      min-height: 0;
-      margin-left: 4px;
-      padding: 1px 9px;
-      font-size: 0.78rem;
-      vertical-align: 1px;
+    .paper-head {
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .venue {
-      display: inline-block;
-      margin-right: 6px;
+    .paper-list .paper-link {
+      flex: none;
+      min-height: 0;
+      padding: 2px;
+      border: 0;
+      border-radius: 4px;
+      background: none;
+      transition: transform 0.15s ease;
+    }
+
+    .paper-list .paper-link:hover,
+    .paper-list .paper-link:focus {
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+    }
+
+    .paper-link svg {
+      display: block;
+      width: 22px;
+      height: 22px;
+      color: var(--accent-strong);
+    }
+
+    .venue,
+    .experience-date {
       color: var(--accent);
-      font-weight: 800;
+      font-size: 0.88rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .paper-body {
+      min-width: 0;
+    }
+
+    .paper-title,
+    .paper-authors {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .paper-title {
-      font-weight: 800;
+      font-weight: 600;
     }
 
     .paper-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
       margin-top: 2px;
       color: var(--muted);
       font-size: 0.94rem;
       line-height: 1.4;
     }
 
+    .paper-list li.expanded .paper-title,
+    .paper-list li.expanded .paper-authors {
+      white-space: normal;
+    }
+
+    .more-toggle {
+      flex: none;
+      padding: 0 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fbfcfb;
+      color: var(--accent-strong);
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 700;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+
+    .more-toggle:hover,
+    .more-toggle:focus-visible {
+      background: var(--accent-soft);
+    }
+
+    .more-toggle[hidden] {
+      display: none;
+    }
+
+    .meta-sep {
+      margin: 0 6px;
+    }
+
     .award {
-      display: inline-block;
-      margin-top: 2px;
       color: var(--gold);
-      font-weight: 800;
+      font-weight: 600;
     }
 
     .compact-list li {
       margin-bottom: 7px;
     }
 
-    .experience-list {
-      display: grid;
-      gap: 12px;
-      padding: 0;
-      list-style: none;
-    }
-
-    .experience-list li {
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 12px;
-      align-items: center;
-      margin: 0;
-      padding: 12px 14px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-    }
-
-    .experience-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 8px;
-      background: var(--accent-soft);
-      color: var(--accent-strong);
-    }
-
-    .experience-icon svg {
-      width: 24px;
-      height: 24px;
-      stroke: currentColor;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      fill: none;
-    }
-
     .experience-role {
       display: block;
-      font-weight: 800;
-      line-height: 1.35;
+      font-weight: 600;
     }
 
     .experience-meta {
       display: block;
+      margin-top: 2px;
       color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.35;
+      font-size: 0.94rem;
+      line-height: 1.4;
     }
 
     .cat-grid {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
       margin-bottom: 16px;
     }
 
     .cat-grid img {
-      flex: 0 0 auto;
-      width: auto;
-      height: 180px;
-      max-width: 100%;
-      object-fit: contain;
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
       border-radius: 8px;
-      border: 1px solid var(--line);
       background: #eef0ed;
+    }
+
+    .cat-grid img.crop-right {
+      object-position: right center;
     }
 
     footer {
@@ -327,8 +357,18 @@
         width: 150px;
       }
 
-      .cat-grid img {
-        height: 160px;
+      .cat-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .paper-list li,
+      .experience-list li {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .paper-title,
+      .paper-authors {
+        white-space: normal;
       }
     }
 
@@ -337,11 +377,6 @@
       .nav a {
         width: 100%;
         justify-content: center;
-      }
-
-      .cat-grid img {
-        height: auto;
-        width: min(100%, 280px);
       }
     }
   </style>
@@ -357,6 +392,14 @@
 </head>
 
 <body>
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
+    <symbol id="icon-pdf" viewBox="0 0 24 24">
+      <path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#fff" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+      <path d="M15 2v5h5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+      <rect x="1" y="11" width="17" height="8" rx="1.5" fill="#c5282f"></rect>
+      <text x="9.5" y="17.3" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="6.4" font-weight="800" text-anchor="middle">PDF</text>
+    </symbol>
+  </svg>
   <div id="layout-content">
     <header class="profile">
       <img class="profile-photo" src="gan_profile2.png" alt="Profile photo of Gan Fang" />
@@ -364,13 +407,7 @@
         <h1>Gan Fang <span class="chinese-name">方淦</span></h1>
         <p class="profile-title">Ph.D. Candidate, Department of Computer Science, Purdue University</p>
         <p class="profile-meta">
-          305 N. University Street West Lafayette, IN 47907
-        </p>
-        <p class="profile-meta">
-          Lawson 3151-7
-        </p>
-        <p class="profile-meta">
-          fang301@purdue.edu
+          Lawson 3151-7<span class="meta-sep" aria-hidden="true">&middot;</span>fang301@purdue.edu
         </p>
         <div class="profile-links" aria-label="Profile links">
           <a href="https://scholar.google.com/citations?user=TzYapqAAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
@@ -378,14 +415,6 @@
       </div>
     </header>
 
-    <nav class="nav" aria-label="Page sections">
-      <a href="#Biography">About</a>
-      <a href="#Publication">Publications</a>
-      <a href="#Experience">Experience</a>
-      <a href="#Recognitions">Recognitions</a>
-      <!-- <a href="#Mentees">Mentees</a> -->
-      <a href="#Cat">Meow</a>
-    </nav>
 
     <main>
       <section id="Biography">
@@ -411,63 +440,100 @@
         <ul class="paper-list">
         
           <li>
-            <span class="venue">[EMSOFT'26]</span>
-            <span class="paper-title">Achieving Speculative Intermittent Computation on Commodity Energy Harvesting Hardware</span>
-            <a class="paper-link" href="papers/EMSOFT_2026_camera_ready.pdf">PDF</a>
-            <div class="paper-meta">
-              Yida Zhang, Shao-Yu Huang, Byounguk Min, Andrew Inho Park, <strong>Gan Fang</strong>, Jongouk Choi and Changhee Jung<br />
-              ACM SIGBED International Conference on Embedded Software, October 2026.
+            <span class="venue">EMSOFT 2026</span>
+            <div class="paper-body">
+              <div class="paper-head">
+                <span class="paper-title">Achieving Speculative Intermittent Computation on Commodity Energy Harvesting Hardware</span>
+                <a class="paper-link" href="papers/EMSOFT_2026_camera_ready.pdf" aria-label="PDF" title="PDF"><svg aria-hidden="true" focusable="false"><use href="#icon-pdf"></use></svg></a>
+              </div>
+              <div class="paper-meta">
+                <span class="paper-authors">
+                  Yida Zhang, Shao-Yu Huang, Byounguk Min, Andrew Inho Park, <strong>Gan Fang</strong>, Jongouk Choi and Changhee Jung
+                  <!-- ACM SIGBED International Conference on Embedded Software, October 2026. -->
+                </span>
+              </div>
             </div>
           </li>
 
           <li>
-            <span class="venue">[IEEE Computer]</span>
-            <span class="paper-title">Speculation under Intermittence: A Guide for Computer Architects</span>
-            <a class="paper-link" href="papers/Speculation_Under_Intermittence_A_Guide_for_Computer_Architects.pdf">PDF</a>
-            <div class="paper-meta">
-              <strong>Gan Fang</strong> and Changhee Jung<br />
-              IEEE Computer Magazine, August 2026.
+            <span class="venue">IEEE Computer</span>
+            <div class="paper-body">
+              <div class="paper-head">
+                <span class="paper-title">Speculation under Intermittence: A Guide for Computer Architects</span>
+                <a class="paper-link" href="papers/Speculation_Under_Intermittence_A_Guide_for_Computer_Architects.pdf" aria-label="PDF" title="PDF"><svg aria-hidden="true" focusable="false"><use href="#icon-pdf"></use></svg></a>
+              </div>
+              <div class="paper-meta">
+                <span class="paper-authors">
+                  <strong>Gan Fang</strong> and Changhee Jung
+                  <!-- IEEE Computer Magazine, August 2026. -->
+                </span>
+              </div>
             </div>
           </li>
 
           <li>
-            <span class="venue">[HPCA'26]</span>
-            <span class="paper-title">Intermittence-Aware Cache Compression</span>
-            <a class="paper-link" href="papers/Kagura_HPCA26.pdf">PDF</a>
-            <div class="paper-meta">
-              <strong>Gan Fang</strong>, Jianping Zeng, Yuchen Zhou, and Changhee Jung<br />
-              IEEE International Symposium on High-Performance Computer Architecture, January 2026.
+            <span class="venue">HPCA 2026</span>
+            <div class="paper-body">
+              <div class="paper-head">
+                <span class="paper-title">Intermittence-Aware Cache Compression</span>
+                <a class="paper-link" href="papers/Kagura_HPCA26.pdf" aria-label="PDF" title="PDF"><svg aria-hidden="true" focusable="false"><use href="#icon-pdf"></use></svg></a>
+              </div>
+              <div class="paper-meta">
+                <span class="paper-authors">
+                  <strong>Gan Fang</strong>, Jianping Zeng, Yuchen Zhou, and Changhee Jung
+                  <!-- IEEE International Symposium on High-Performance Computer Architecture, January 2026. -->
+                </span>
+              </div>
             </div>
           </li>
 
           <li>
-            <span class="venue">[ISCA'25]</span>
-            <span class="paper-title">Rethinking Prefetching for Intermittent Computing</span>
-            <a class="paper-link" href="papers/IPEX_ISCA25_taps.pdf">PDF</a>
-            <div class="paper-meta">
-              <strong>Gan Fang</strong>, Jianping Zeng, Aditya Gupta, and Changhee Jung<br />
-              ACM/IEEE International Symposium on Computer Architecture, June 2025.<br />
-              <a class="award" href="https://www.iscaconf.org/isca2025/#:~:text=%22Rethinking%20Prefetching%20for%20Intermittent%20Computing%22%20by%20Gan%20Fang%2C%20Jianping%20Zeng%2C%20Aditya%20Gupta%2C%20Changhee%20Jung" target="_blank" rel="noopener noreferrer">Best Paper Honorable Mention</a>
+            <span class="venue">ISCA 2025</span>
+            <div class="paper-body">
+              <div class="paper-head">
+                <span class="paper-title">Rethinking Prefetching for Intermittent Computing</span>
+                <a class="paper-link" href="papers/IPEX_ISCA25_taps.pdf" aria-label="PDF" title="PDF"><svg aria-hidden="true" focusable="false"><use href="#icon-pdf"></use></svg></a>
+              </div>
+              <div class="paper-meta">
+                <span class="paper-authors">
+                  <strong>Gan Fang</strong>, Jianping Zeng, Aditya Gupta, and Changhee Jung
+                  <!-- ACM/IEEE International Symposium on Computer Architecture, June 2025.<br /> -->
+                  <span class="meta-sep" aria-hidden="true">&middot;</span>
+                  <a class="award" href="https://www.iscaconf.org/isca2025/#:~:text=%22Rethinking%20Prefetching%20for%20Intermittent%20Computing%22%20by%20Gan%20Fang%2C%20Jianping%20Zeng%2C%20Aditya%20Gupta%2C%20Changhee%20Jung" target="_blank" rel="noopener noreferrer">Best Paper Honorable Mention</a>
+                </span>
+              </div>
             </div>
           </li>
 
           <li>
-            <span class="venue">[HPCA'25]</span>
-            <span class="paper-title">Rethinking Dead Block Prediction for Intermittent Computing</span>
-            <a class="paper-link" href="papers/EDBP_HPCA25.pdf">PDF</a>
-            <div class="paper-meta">
-              <strong>Gan Fang</strong> and Changhee Jung<br />
-              IEEE International Symposium on High-Performance Computer Architecture, March 2025.
+            <span class="venue">HPCA 2025</span>
+            <div class="paper-body">
+              <div class="paper-head">
+                <span class="paper-title">Rethinking Dead Block Prediction for Intermittent Computing</span>
+                <a class="paper-link" href="papers/EDBP_HPCA25.pdf" aria-label="PDF" title="PDF"><svg aria-hidden="true" focusable="false"><use href="#icon-pdf"></use></svg></a>
+              </div>
+              <div class="paper-meta">
+                <span class="paper-authors">
+                  <strong>Gan Fang</strong> and Changhee Jung
+                  <!-- IEEE International Symposium on High-Performance Computer Architecture, March 2025. -->
+                </span>
+              </div>
             </div>
           </li>
 
           <li>
-            <span class="venue">[ICCAD'24]</span>
-            <span class="paper-title">Hybrid Power Failure Recovery for Intermittent Computing</span>
-            <a class="paper-link" href="papers/RollSwitch_ICCAD24.pdf">PDF</a>
-            <div class="paper-meta">
-              <strong>Gan Fang</strong>, Jongouk Choi, and Changhee Jung<br />
-              ACM/IEEE International Conference on Computer-Aided Design, October 2024.
+            <span class="venue">ICCAD 2024</span>
+            <div class="paper-body">
+              <div class="paper-head">
+                <span class="paper-title">Hybrid Power Failure Recovery for Intermittent Computing</span>
+                <a class="paper-link" href="papers/RollSwitch_ICCAD24.pdf" aria-label="PDF" title="PDF"><svg aria-hidden="true" focusable="false"><use href="#icon-pdf"></use></svg></a>
+              </div>
+              <div class="paper-meta">
+                <span class="paper-authors">
+                  <strong>Gan Fang</strong>, Jongouk Choi, and Changhee Jung
+                  <!-- ACM/IEEE International Conference on Computer-Aided Design, October 2024. -->
+                </span>
+              </div>
             </div>
           </li>
         </ul>
@@ -477,32 +543,19 @@
         <h2>Experience</h2>
         <ul class="experience-list">
           <li>
-            <span class="experience-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <rect x="6" y="6" width="12" height="12" rx="2"></rect>
-                <path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"></path>
-                <path d="M10 10h4v4h-4z"></path>
-              </svg>
-            </span>
-            <span>
+            <span class="experience-date">May &ndash; Aug 2026</span>
+            <div>
               <span class="experience-role">Computer Architecture Research Intern</span>
-              <span class="experience-meta">Futurewei Technology, May 2026 - Aug 2026</span>
-            </span>
+              <span class="experience-meta">Futurewei Technologies</span>
+            </div>
           </li>
           <li>
-            <span class="experience-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M4 5h16v11H4z"></path>
-                <path d="M8 20h8M10 16v4M14 16v4"></path>
-                <path d="M8 9h3v3H8zM14 9h2M14 12h2"></path>
-              </svg>
-            </span>
-            <span>
+            <span class="experience-date">May &ndash; Aug 2025</span>
+            <div>
               <span class="experience-role">SoC Modeling Intern</span>
-              <span class="experience-meta">Samsung Research America, May 2025 - Aug 2025</span>
-            </span>
+              <span class="experience-meta">Samsung Research America</span>
+            </div>
           </li>
-
         </ul>
       </section>
 
@@ -511,12 +564,12 @@
         <h2>Meow</h2>
         <div class="cat-grid" aria-label="Photos of Dax">
           <img src="cats/dax.jpg" alt="Dax the cat" loading="lazy" />
-          <img src="cats/dax1.jpg" alt="Dax the cat lying down" loading="lazy" />
+          <img class="crop-right" src="cats/dax1.jpg" alt="Dax the cat lying down" loading="lazy" />
           <img src="cats/dax2.jpg" alt="Dax the cat watching you" loading="lazy" />
           <img src="cats/dax3.jpg" alt="Dax the cat relaxing" loading="lazy" />
           <img src="cats/dax4.jpg" alt="Dax the cat rolling on the carpet" loading="lazy" />
           <img src="cats/dax5.jpg" alt="Dax the cat eating a heart-shaped treat" loading="lazy" />
-          <img src="cats/dax6.jpg" alt="Dax the cat watching a red light on the stairs" loading="lazy" />
+          <img class="crop-right" src="cats/dax6.jpg" alt="Dax the cat watching a red light on the stairs" loading="lazy" />
         </div>
         <p>
           Dax is a three-year-old British Shorthair who joined our family in the fall of 2023.
@@ -527,5 +580,43 @@
 
 
   </div>
+
+  <script>
+    // Each paper shows on two lines; when the title or author list is cut off,
+    // a "more" button lets the reader expand that paper to its full text.
+    (() => {
+      const list = document.querySelector('.paper-list');
+      if (!list) return;
+      const papers = [...list.querySelectorAll('li')];
+      const isCut = el => el && el.scrollWidth > el.clientWidth + 1;
+
+      papers.forEach(li => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'more-toggle';
+        btn.textContent = 'more';
+        btn.hidden = true;
+        btn.setAttribute('aria-expanded', 'false');
+        btn.addEventListener('click', () => {
+          const open = li.classList.toggle('expanded');
+          btn.textContent = open ? 'less' : 'more';
+          btn.setAttribute('aria-expanded', String(open));
+          refresh();
+        });
+        li.querySelector('.paper-meta').append(btn);
+      });
+
+      function refresh() {
+        papers.forEach(li => {
+          const btn = li.querySelector('.more-toggle');
+          if (li.classList.contains('expanded')) { btn.hidden = false; return; }
+          btn.hidden = true; // measure without the button taking space
+          btn.hidden = !(isCut(li.querySelector('.paper-title')) || isCut(li.querySelector('.paper-authors')));
+        });
+      }
+
+      new ResizeObserver(refresh).observe(list);
+    })();
+  </script>
 </body>
 </html>
