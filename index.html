@@ -15,7 +15,7 @@
       --accent: #0543ad;
       --accent-strong: #043385; /* cvblue: RGB(4, 51, 133) */
       --accent-soft: #e8eef8;
-      --gold: #9a6a1d;
+      --highlight: #c5282f; /* awards; same red as the PDF icon label */
     }
 
     * {
@@ -100,10 +100,15 @@
     }
 
     .profile-title {
-      margin: 0 0 14px;
+      margin: 0;
       color: var(--accent-strong);
       font-size: 1.05rem;
       font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .profile-title + .profile-meta {
+      margin-top: 14px;
     }
 
     .profile-meta {
@@ -289,13 +294,20 @@
       display: none;
     }
 
-    .meta-sep {
-      margin: 0 6px;
+    .paper-award {
+      margin-top: 2px;
+      font-size: 0.94rem;
+      line-height: 1.4;
     }
 
     .award {
-      color: var(--gold);
+      color: var(--highlight);
       font-weight: 600;
+    }
+
+    .award:hover,
+    .award:focus {
+      color: var(--highlight);
     }
 
     .compact-list li {
@@ -405,9 +417,11 @@
       <img class="profile-photo" src="gan_profile2.png" alt="Profile photo of Gan Fang" />
       <div>
         <h1>Gan Fang <span class="chinese-name">方淦</span></h1>
-        <p class="profile-title">Ph.D. Candidate, Department of Computer Science, Purdue University</p>
+        <p class="profile-title">Ph.D. Candidate </p>
+        <p class="profile-title">Department of Computer Science </p>
+        <p class="profile-title">Purdue University </p>
         <p class="profile-meta">
-          Lawson 3151-7<span class="meta-sep" aria-hidden="true">&middot;</span>fang301@purdue.edu
+          fang301@purdue.edu
         </p>
         <div class="profile-links" aria-label="Profile links">
           <a href="https://scholar.google.com/citations?user=TzYapqAAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
@@ -498,9 +512,10 @@
                 <span class="paper-authors">
                   <strong>Gan Fang</strong>, Jianping Zeng, Aditya Gupta, and Changhee Jung
                   <!-- ACM/IEEE International Symposium on Computer Architecture, June 2025.<br /> -->
-                  <span class="meta-sep" aria-hidden="true">&middot;</span>
-                  <a class="award" href="https://www.iscaconf.org/isca2025/#:~:text=%22Rethinking%20Prefetching%20for%20Intermittent%20Computing%22%20by%20Gan%20Fang%2C%20Jianping%20Zeng%2C%20Aditya%20Gupta%2C%20Changhee%20Jung" target="_blank" rel="noopener noreferrer">Best Paper Honorable Mention</a>
                 </span>
+              </div>
+              <div class="paper-award">
+                <a class="award" href="https://www.iscaconf.org/isca2025/#:~:text=%22Rethinking%20Prefetching%20for%20Intermittent%20Computing%22%20by%20Gan%20Fang%2C%20Jianping%20Zeng%2C%20Aditya%20Gupta%2C%20Changhee%20Jung" target="_blank" rel="noopener noreferrer">Best Paper Honorable Mention</a>
               </div>
             </div>
           </li>
