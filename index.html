@@ -182,17 +182,26 @@
 
     .paper-list {
       display: grid;
-      gap: 14px;
+      gap: 8px;
       padding: 0;
       list-style: none;
     }
 
     .paper-list li {
       margin: 0;
-      padding: 16px 18px;
+      padding: 10px 14px;
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: 8px;
+      line-height: 1.45;
+    }
+
+    .paper-list .paper-link {
+      min-height: 0;
+      margin-left: 4px;
+      padding: 1px 9px;
+      font-size: 0.78rem;
+      vertical-align: 1px;
     }
 
     .venue {
@@ -207,14 +216,15 @@
     }
 
     .paper-meta {
-      margin-top: 6px;
+      margin-top: 2px;
       color: var(--muted);
-      line-height: 1.45;
+      font-size: 0.94rem;
+      line-height: 1.4;
     }
 
     .award {
       display: inline-block;
-      margin-top: 8px;
+      margin-top: 2px;
       color: var(--gold);
       font-weight: 800;
     }
@@ -324,8 +334,7 @@
 
     @media (max-width: 430px) {
       .profile-links a,
-      .nav a,
-      .paper-link {
+      .nav a {
         width: 100%;
         justify-content: center;
       }
@@ -385,8 +394,16 @@
           I am a Ph.D. candidate in Computer Science at Purdue University, advised by Dr. Changhee Jung. 
           My research focuses on computer architecture, 
           with an emphasis on designing high-performance and energy-efficient CPUs and GPUs, 
-          heterogeneous multicore processors, and cache and memory hierarchies.
+          Large Language Model (LLM) acceleration, compiler-architecture co-design, and cache hierarchies.
         </p>
+      </section>
+
+      <section id="Recognitions">
+        <h2>Recognitions</h2>
+        <ul class="compact-list">
+          <li>2026-2027 Bilsland Dissertation Fellowship</li>
+          <li>ISCA 2025 Best Paper Honorable Mention</li>
+        </ul>
       </section>
 
       <section id="Publication">
@@ -485,56 +502,10 @@
               <span class="experience-meta">Samsung Research America, May 2025 - Aug 2025</span>
             </span>
           </li>
-          <!-- <li>
-            <span class="experience-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M4 7h16M4 12h16M4 17h16"></path>
-                <path d="M7 4v16M12 4v16M17 4v16"></path>
-                <path d="M5 5h14v14H5z"></path>
-              </svg>
-            </span>
-            <span>
-              <span class="experience-role">HPC Library Engineer Intern</span>
-              <span class="experience-meta">Cambricon Technology, Mar 2021 - Jun 2021</span>
-            </span>
-          </li> -->
-          <!-- <li>
-            <span class="experience-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M7 7h10v10H7z"></path>
-                <path d="M4 10h3M4 14h3M17 10h3M17 14h3M10 4v3M14 4v3M10 17v3M14 17v3"></path>
-                <path d="M10 12h4"></path>
-              </svg>
-            </span>
-            <span>
-              <span class="experience-role">Computer Architecture Intern</span>
-              <span class="experience-meta">Biren Technology, Jul 2020 - Dec 2020</span>
-            </span>
-          </li> -->
+
         </ul>
       </section>
 
-      <section id="Recognitions">
-        <h2>Recognitions</h2>
-        <ul class="compact-list">
-          <li>2026-2027 Bilsland Dissertation Fellowship</li>
-          <li>ISCA 2025 Best Paper Honorable Mention</li>
-        </ul>
-      </section>
-
-      <!-- <section id="Mentees">
-        <h2>Mentees</h2>
-        <ul class="compact-list">
-          <li>Sam Xu, MS @ Georgia Tech to AI Hardware Engineer @ Tesla</li>
-          <li>Sotirios Kougiouris, MS @ Purdue</li>
-          <li>Chewon Yu Park, BS @ Purdue to MS @ Georgia Tech</li>
-          <li>Zhanyue Zhang, MS @ UT Austin</li>
-          <li>Khanh Nguyen, BS @ Purdue</li>
-          <li>Dongho Choi, BS @ Seoul National University to Ph.D. @ Seoul National University</li>
-          <li>Aditya Gupta, BS @ Purdue to SDE @ Theom</li>
-          <li>Sikang Sun, BS @ Purdue to Ph.D. @ Purdue</li>
-        </ul>
-      </section> -->
 
       <section id="Cat">
         <h2>Meow</h2>
@@ -554,9 +525,7 @@
       </section>
     </main>
 
-    <!-- <footer>
-      Last updated April 2026.
-    </footer> -->
+
   </div>
 </body>
 </html>
